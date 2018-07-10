@@ -4,7 +4,7 @@ I originally had a solution for finding distinct permutations figured out, so no
 of strings order independent... recursive solution seemed to make the most sense. Still need to fix some compile issues that I brought
 over from my pseudocode implementation.
 
-
+```java
 import java.lang.Math; // headers MUST be above the first class
 import java.util.*;
 import java.lang.*;
@@ -76,3 +76,4 @@ public class HelloWorld
     return returnValue;
   }
 }
+```
