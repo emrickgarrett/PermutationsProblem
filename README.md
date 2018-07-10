@@ -29,22 +29,18 @@ public class HelloWorld
     if (input == "") {
     	return returnVal;
     }
-
     Character firstLetter = input.charAt(0);
 
     if(input.length() > 1) {
         input = input.substring(1);
-
         HashSet<String> temp = generatePermutations(input);
 
-        for (String string : temp)
-        {
-            for (int i = 0; i <= string.length(); i++)
-            {
+        for (String string : temp) {
+            for (int i = 0; i <= string.length(); i++) {
                 returnVal.add(string.substring(0, i) + firstLetter + string.substring(i));
             }
         }
-    }else {
+    } else {
         returnVal.add(firstLetter + "");
     }
     
