@@ -1,8 +1,9 @@
 # PermutationsProblem
 
 I originally had a solution for finding distinct permutations figured out, so now I just need to determine all possible combinations
-of strings order independent... recursive solution seemed to make the most sense. Still need to fix some compile issues that I brought
-over from my pseudocode implementation.
+of strings order independent... recursive solution seemed to make the most sense.
+
+I believe this will do it... but I will need to do some testing to verify.
 
 ```java
 import java.lang.Math; // headers MUST be above the first class
@@ -18,8 +19,8 @@ public class HelloWorld
     
     HashSet<String> list = generateAllStrings(values);
     
-    for(int i = 0; i < list.size(); i++) {
-     System.out.println(list.get(i)); 
+    for(Iterator<String> it = list.iterator(); it.hasNext();) {
+     System.out.println(it.next()); 
     }
   }
   
@@ -34,7 +35,7 @@ public class HelloWorld
     if(input.length() > 1) {
         input = input.substring(1);
 
-        HashSet<String> temp = generatePerm(input);
+        HashSet<String> temp = generatePermutations(input);
 
         for (String string : temp)
         {
@@ -44,7 +45,7 @@ public class HelloWorld
             }
         }
     }else {
-        returnVal.add(a + "");
+        returnVal.add(firstLetter + "");
     }
     
     return returnVal;
@@ -57,18 +58,20 @@ public class HelloWorld
     	allStrings.addAll(generateAllStrings(values[i], values)); 
     }
     
-    for(int i = 0; i < allStrings.size(); i++) {
-     	allPermutations.addAll(generatePermutations(allStrings.get(i)));
+    for(Iterator<String> it = allStrings.iterator(); it.hasNext(); ) {
+     	allPermutations.addAll(generatePermutations(it.next()));
     }
-    
     return allPermutations;
   }
   
-  public static HashSet<String> generateAllStrings(String value, String[] values) {
-    if(value.length() > values.length) { return new HashSet<String>(); }
-    
+  public static HashSet<String> generateAllStrings(String value, String[] values) {    
     HashSet<String> returnValue = new HashSet<String>();
     
+    if(value.length() == values.length) {
+    	returnValue.add(value);
+      	return returnValue;
+    }
+
     for(int i = 0; i < values.length; i++) {
       returnValue.addAll(generateAllStrings(value + values[i], values));
     }
