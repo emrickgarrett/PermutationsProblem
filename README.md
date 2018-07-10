@@ -4,13 +4,6 @@ I originally had a solution for finding distinct permutations figured out, so no
 of strings order independent... recursive solution seemed to make the most sense. Still need to fix some compile issues that I brought
 over from my pseudocode implementation.
 
-//*******************************************************************
-// Welcome to CompileJava!
-// If you experience any issues, please contact us ('More Info')  -->
-// Also, sorry that the "Paste" feature no longer works! GitHub broke
-// this (so we'll switch to a new provider): https://blog.github.com\
-// /2018-02-18-deprecation-notice-removing-anonymous-gist-creation/
-//*******************************************************************
 
 import java.lang.Math; // headers MUST be above the first class
 import java.util.*;
@@ -19,7 +12,6 @@ import java.lang.*;
 // one class needs to have a main() method
 public class HelloWorld
 {
-  // arguments are passed using the text field below this editor
   public static void main(String[] args)
   {
     String[] values = {"a", "b", "c", "d", "e"};
